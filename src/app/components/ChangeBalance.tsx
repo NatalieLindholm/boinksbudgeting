@@ -1,0 +1,33 @@
+"use client";
+import React, { useState } from "react";
+import { saveDataBalance } from "../utils/handledb";
+import { FaPen } from "react-icons/fa";
+
+export default function ChangeBalance() {
+  const [visiable, setVisiable] = useState(false);
+
+  const create = async (FormData: FormData) => {
+    const amount = FormData.get("amount") as unknown as number;
+    const data = await saveDataBalance(amount);
+    console.log(data);
+  };
+  return (
+    <div>
+      <button id="add" className="pen" onClick={() => setVisiable(!visiable)}>
+        <FaPen />
+      </button>
+      {visiable && (
+        <form action={create}>
+          <div className="popupDiv">
+            <h1 className="popup_h1">Change Balance</h1>
+            <div className="popup">
+              <p>Amount</p>
+              <input type="number" name="amount" placeholder="Enter balance" />
+            </div>
+            <button className="popup_button">Done</button>
+          </div>
+        </form>
+      )}
+    </div>
+  );
+}

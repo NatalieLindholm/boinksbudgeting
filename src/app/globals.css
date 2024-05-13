@@ -1,0 +1,429 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* =========================================== */
+/* mobile button */
+
+#mobileButton {
+  margin-right: 5%;
+  display: flex;
+  justify-content: end;
+  align-items: center;
+  height: 100%;
+}
+
+#mobileButton button {
+  color: white;
+}
+
+.text {
+  color: #0079ad;
+  font-weight: 700;
+  display: block;
+  font-size: 1.5rem;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+.text:active {
+  background-color: rgb(212, 212, 212);
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+}
+
+.dropdown {
+  position: absolute;
+  top: 1%;
+  right: 20%;
+  margin-top: 0.5rem;
+  width: 12rem;
+  background-color: white;
+  border-radius: 20px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.display {
+  display: none;
+}
+
+/* =========================================== */
+
+.start {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  font-size: 2.4rem;
+  height: 100vh;
+}
+
+.start h1 {
+  font-size: 3rem;
+  margin-bottom: -30px;
+}
+
+.start h2 {
+  font-size: 1.5rem;
+  margin-top: 20px;
+}
+
+.startButton {
+  background-color: #32396b;
+  color: white;
+  width: 120px;
+  height: 70px;
+  font-size: 2.4rem;
+  box-shadow: 4px 4px 4px rgb(0, 0, 0, 25%);
+  margin-top: 20px;
+  border-radius: 10px;
+}
+
+.startButton:hover {
+  background-color: #434b85;
+}
+
+/* =========================================== */
+#sidebar {
+  box-shadow: 0px 4px 4px rgb(0, 0, 0, 25%);
+}
+
+.pen {
+  font-size: 1rem;
+  position: absolute;
+  right: -5px;
+  top: 10px;
+  padding: 10px 20px;
+  cursor: pointer;
+}
+
+.pen:hover {
+  color: rgb(216, 216, 216);
+}
+
+.expenses_div {
+  font-size: 1.8rem;
+  display: flex;
+  justify-content: space-around;
+  margin-top: 10px;
+}
+
+.delete {
+  position: absolute;
+  right: 1px;
+  top: 10px;
+  padding: 10px 20px;
+  cursor: pointer;
+}
+
+.overBudget {
+  background-color: rgb(215, 39, 39);
+  color: white;
+  border-radius: 20px;
+  width: 300px;
+  height: 140px;
+  font-size: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  position: relative;
+  text-align: center;
+  margin: 10px;
+}
+
+.budget_div {
+  background-color: #0079ad;
+  color: white;
+  border-radius: 20px;
+  width: 300px;
+  height: 140px;
+  font-size: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin: 10px;
+  position: relative;
+}
+
+.budget_div h1 {
+  font-weight: 700;
+}
+
+.addBudget {
+  background-color: #32396b;
+  color: white;
+  font-size: 3rem;
+  position: fixed;
+  border-radius: 20px;
+  padding: 15px;
+  right: 0;
+  bottom: 0;
+  margin: 8%;
+  box-shadow: 4px 2px 4px rgb(0, 0, 0, 25%);
+  z-index: 100;
+}
+
+.addBudget:hover {
+  background-color: #1e5a82;
+}
+
+.popupDiv {
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 300px;
+  height: 400px;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  flex-direction: column;
+  box-shadow: 4px 2px 4px rgb(0, 0, 0, 25%);
+  border: #32396b solid 10px;
+  border-radius: 20px;
+  background-color: white;
+  z-index: 100;
+}
+
+.popup_h1 {
+  font-size: 2.3rem;
+  font-weight: 700;
+  color: #0079ad;
+}
+
+.popup input {
+  border: #0079ad solid 3px;
+  border-radius: 10px;
+  padding-left: 10px;
+  width: 200px;
+  height: 50px;
+  font-size: 1.3rem;
+  color: black;
+  font-weight: 100;
+}
+
+.category {
+  border: #0079ad solid 3px;
+  border-radius: 10px;
+  width: 200px;
+  height: 50px;
+  font-size: 1.3rem;
+}
+
+.popup p {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: black;
+}
+
+.popup p {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: black;
+}
+
+.popup_button {
+  background-color: #0079ad;
+  color: white;
+  font-size: 2rem;
+  border-radius: 20px;
+  font-weight: 700;
+  width: 120px;
+  height: 60px;
+  margin: 5%;
+  margin-top: 10px;
+  box-shadow: 4px 2px 4px rgb(0, 0, 0, 25%);
+}
+
+#add:active {
+  color: #4e579a;
+}
+
+@media only screen and (min-width: 600px) {
+  #mobileButton {
+    display: none;
+  }
+
+  .display {
+    display: block;
+  }
+
+  .home {
+    display: flex;
+    height: 100vh;
+  }
+
+  #content {
+    width: 75%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  #sidebar {
+    background-color: #32396b;
+    height: 100vh;
+    width: 25%;
+    box-shadow: 4px 0px 4px rgb(0, 0, 0, 25%);
+    display: flex;
+    flex-direction: column;
+  }
+
+  #sidebar button {
+    color: white;
+    background-color: #32396b;
+    border-top: #3d4580 solid 1px;
+    border-bottom: #3d4580 solid 1px;
+    height: 100px;
+    width: 100%;
+    padding-left: 15px;
+    text-align: left;
+    font-size: 2.5rem;
+    font-weight: 700;
+  }
+
+  #sidebar button:hover {
+    background-color: #363d72;
+  }
+
+  #sidebar h1 {
+    margin: 40px;
+    font-size: 6rem;
+  }
+
+  .pen {
+    font-size: 1rem;
+    position: absolute;
+    right: -5px;
+    top: 10px;
+    padding: 10px 20px;
+    cursor: pointer;
+  }
+
+  .expenses_div {
+    font-size: 1.8rem;
+    display: flex;
+    justify-content: space-around;
+    margin-top: 10px;
+  }
+
+  .expenses_scroll {
+    overflow: auto;
+    height: 60vh;
+  }
+
+  #budget_scroll {
+    overflow: auto;
+    height: 95vh;
+    width: 75%;
+  }
+
+  .delete {
+    position: absolute;
+    right: 1px;
+    top: 10px;
+    padding: 10px 20px;
+    cursor: pointer;
+  }
+
+  .overBudget {
+    background-color: rgb(215, 39, 39);
+    color: white;
+    border-radius: 20px;
+    width: 300px;
+    height: 140px;
+    font-size: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    position: relative;
+    text-align: center;
+    margin: 10px;
+  }
+
+  .budget_div {
+    background-color: #0079ad;
+    color: white;
+    border-radius: 20px;
+    width: 300px;
+    height: 140px;
+    font-size: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin: 10px;
+    position: relative;
+  }
+
+  .addBudget {
+    background-color: #32396b;
+    color: white;
+    font-size: 3rem;
+    position: fixed;
+    border-radius: 20px;
+    padding: 15px;
+    right: 0;
+    bottom: 0;
+    margin: 3%;
+    box-shadow: 4px 2px 4px rgb(0, 0, 0, 25%);
+    z-index: 100;
+  }
+
+  .addBudget:hover {
+    background-color: #1e5a82;
+  }
+
+  .popup_h1 {
+    font-size: 2.3rem;
+    font-weight: 700;
+    color: #0079ad;
+  }
+
+  .popup input {
+    border: #0079ad solid 3px;
+    border-radius: 10px;
+    padding-left: 10px;
+    width: 200px;
+    height: 50px;
+    font-size: 1.3rem;
+  }
+
+  .category {
+    border: #0079ad solid 3px;
+    border-radius: 10px;
+    width: 200px;
+    height: 50px;
+    font-size: 1.3rem;
+  }
+
+  .popup p {
+    font-size: 1.5rem;
+    font-weight: 700;
+  }
+
+  .popup_button {
+    background-color: #0079ad;
+    color: white;
+    font-size: 2rem;
+    border-radius: 20px;
+    font-weight: 700;
+    width: 120px;
+    height: 60px;
+    margin: 5%;
+    margin-top: 10px;
+    box-shadow: 4px 2px 4px rgb(0, 0, 0, 25%);
+  }
+}
