@@ -7,7 +7,7 @@ export default function DeleteBudget({ id }: { id: string }) {
   const deleteForm = async (FormData: FormData) => {
     const id = FormData.get("id") as string;
     const data = await deleteBudget(id);
-    console.log(data);
+    // console.log(data);
   };
 
   const handleClick = () => {

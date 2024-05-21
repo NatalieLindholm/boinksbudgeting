@@ -10,7 +10,7 @@ export default function Payments() {
     const amount = FormData.get("amount") as unknown as number;
     const description = FormData.get("description") as string;
     const data = await saveDataPayment(amount, description);
-    console.log(data);
+    // console.log(data);
     setVisiable(!visiable);
   };
 

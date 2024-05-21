@@ -10,7 +10,7 @@ export default function Budgets() {
     const category = FormData.get("category") as string;
     const amount = FormData.get("amount") as unknown as number;
     const data = await saveDataBudget(category, amount);
-    console.log(data);
+    // console.log(data);
     setVisiable(!visiable);
   };
 

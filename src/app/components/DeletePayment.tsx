@@ -7,7 +7,7 @@ export default function DeletePayment({ id }: { id: string }) {
   const deleteForm = async (FormData: FormData) => {
     const id = FormData.get("id") as string;
     const data = await deletePayment(id);
-    console.log(data);
+    // console.log(data);
   };
 
   const handleClick = () => {

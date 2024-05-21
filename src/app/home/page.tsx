@@ -92,7 +92,7 @@ export default function Page() {
               key={balance.id}
               className="m-5 bg-[#0079AD] rounded-xl text-white text-3xl w-64 h-24 flex flex-col items-center justify-center relative"
             >
-              <h1 className="font-bold">Bank Konto</h1>
+              <h1 className="font-bold">Balance</h1>
               <h2>{balance.amount} €</h2>
               <ChangeBalance />
             </div>

@@ -9,7 +9,7 @@ export default function Expenses() {
     const category = FormData.get("category") as string;
     const amount = FormData.get("amount") as unknown as number;
     const data = await saveDataExpenses(category, amount);
-    console.log(data);
+    // console.log(data);
     setVisiable(!visiable);
   };
 

@@ -9,7 +9,7 @@ export default function ChangeBalance() {
   const create = async (FormData: FormData) => {
     const amount = FormData.get("amount") as unknown as number;
     const data = await saveDataBalance(amount);
-    console.log(data);
+    // console.log(data);
     setVisiable(!visiable);
   };
 

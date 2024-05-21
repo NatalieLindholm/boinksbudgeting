@@ -12,10 +12,10 @@ export async function saveDataBudget(category: string, amount: number) {
       category,
       amount,
     ]);
-    return "Saved Successfully";
+    return "Saved budget successfully";
   } catch (error) {
     console.log(error);
-    return "Didnt save";
+    return "Budget didnt save";
   }
 }
 
@@ -26,7 +26,7 @@ export async function getBudgetData() {
     console.log(data.rows); // Check the structure of the returned data
     return data.rows;
   } catch (error) {
-    console.error("Error fetching data:", error);
+    console.error("Error fetching budget data:", error);
     return [];
   }
 }
@@ -38,7 +38,7 @@ export async function BudgetData() {
     return budgetData;
   } catch (error) {
     console.log(error);
-    return "Didnt get";
+    return "Didnt get budget data";
   }
 }
 
@@ -47,10 +47,10 @@ export async function deleteBudget(id: string) {
   try {
     await db.query("DELETE FROM budget WHERE id = $1", [id]);
     revalidateTag("id");
-    return "Deleted";
+    return "Deleted budget";
   } catch (error) {
     console.log(error);
-    return "didnt delete";
+    return "didnt delete budget";
   }
 }
 
@@ -66,21 +66,26 @@ export async function saveDataExpenses(category: string, amount: number) {
       category,
       amount,
     ]);
-    return "Saved Successfully";
+
+    return "Saved expens successfully";
   } catch (error) {
     console.log(error);
-    return "Didnt save";
+    return "Expens didnt save";
+  } finally {
+    await db.query("UPDATE balance SET amount = amount - $1 WHERE id = 1", [
+      amount,
+    ]);
   }
 }
 
 // Get expens data from db
 export async function getExpensData() {
   try {
-    const data = await db.query("SELECT * FROM expenses");
+    const data = await db.query("SELECT * FROM expenses ORDER BY id DESC");
     console.log(data.rows);
     return data.rows;
   } catch (error) {
-    console.error("Error fetching data:", error);
+    console.error("Error fetching expens data:", error);
     return [];
   }
 }
@@ -92,7 +97,7 @@ export async function ExpensData() {
     return expensData;
   } catch (error) {
     console.log(error);
-    return "Didnt get";
+    return "Didnt get expens data";
   }
 }
 // ==============================================================================
@@ -104,10 +109,10 @@ export async function saveDataBalance(amount: number) {
   }
   try {
     await db.query("UPDATE balance SET amount = $1 WHERE id = 1", [amount]);
-    return "Saved Successfully";
+    return "Updated balance successfully";
   } catch (error) {
     console.log(error);
-    return "Didnt save";
+    return "Balance didnt save";
   }
 }
 
@@ -118,7 +123,7 @@ export async function getBalanceData() {
     console.log(balanceData);
     return balanceData.rows;
   } catch (error) {
-    console.error("Error fetching data:", error);
+    console.error("Error fetching balance data:", error);
     return [];
   }
 }
@@ -130,7 +135,7 @@ export async function BalanceData() {
     return balanceData;
   } catch (error) {
     console.log(error);
-    return "Didnt get";
+    return "Didnt get balance data";
   }
 }
 
@@ -146,10 +151,10 @@ export async function saveDataPayment(amount: number, description: string) {
       amount,
       description,
     ]);
-    return "Saved Successfully";
+    return "Saved payment successfully";
   } catch (error) {
     console.log(error);
-    return "Didnt save";
+    return "Payment didnt save";
   }
 }
 
@@ -160,7 +165,7 @@ export async function getPaymentData() {
     console.log(data.rows); // Check the structure of the returned data
     return data.rows;
   } catch (error) {
-    console.error("Error fetching data:", error);
+    console.error("Error fetching payment data:", error);
     return [];
   }
 }
@@ -172,7 +177,7 @@ export async function PaymentData() {
     return paymentData;
   } catch (error) {
     console.log(error);
-    return "Didnt get";
+    return "Didnt get payment data";
   }
 }
 
@@ -181,9 +186,9 @@ export async function deletePayment(id: string) {
   try {
     await db.query("DELETE FROM payments WHERE id = $1", [id]);
     revalidateTag("id");
-    return "Deleted";
+    return "Deleted payment";
   } catch (error) {
     console.log(error);
-    return "didnt delete";
+    return "Didnt delete payment";
   }
 }
