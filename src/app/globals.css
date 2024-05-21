@@ -159,7 +159,7 @@
   font-weight: 700;
 }
 
-.addBudget {
+.addButton {
   background-color: #32396b;
   color: white;
   font-size: 3rem;
@@ -173,8 +173,8 @@
   z-index: 100;
 }
 
-.addBudget:hover {
-  background-color: #1e5a82;
+.addButton:hover {
+  background-color: rgb(25, 78, 114);
 }
 
 .popupDiv {
@@ -183,7 +183,6 @@
   top: 50%;
   transform: translate(-50%, -50%);
   width: 300px;
-  height: 400px;
   display: flex;
   justify-content: space-evenly;
   align-items: center;
@@ -199,6 +198,7 @@
   font-size: 2.3rem;
   font-weight: 700;
   color: #0079ad;
+  margin-top: 10px;
 }
 
 .popup input {
@@ -224,6 +224,7 @@
   font-size: 1.5rem;
   font-weight: 700;
   color: black;
+  margin-top: 10px;
 }
 
 .popup_button {
@@ -236,11 +237,27 @@
   height: 60px;
   margin: 5%;
   margin-top: 10px;
+  margin-top: 20px;
   box-shadow: 4px 2px 4px rgb(0, 0, 0, 25%);
 }
 
 #add:active {
   color: #4e579a;
+}
+
+.payment_div {
+  border: solid 10px #0079ad;
+  color: #0079ad;
+  border-radius: 20px;
+  width: 300px;
+  height: 140px;
+  font-size: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin: 10px;
+  position: relative;
 }
 
 @media only screen and (min-width: 600px) {
@@ -317,7 +334,7 @@
     height: 60vh;
   }
 
-  #budget_scroll {
+  #site_scroll {
     overflow: auto;
     height: 95vh;
     width: 75%;
@@ -362,7 +379,7 @@
     position: relative;
   }
 
-  .addBudget {
+  .addButton {
     background-color: #32396b;
     color: white;
     font-size: 3rem;
@@ -376,48 +393,7 @@
     z-index: 100;
   }
 
-  .addBudget:hover {
-    background-color: #1e5a82;
-  }
-
-  .popup_h1 {
-    font-size: 2.3rem;
-    font-weight: 700;
-    color: #0079ad;
-  }
-
-  .popup input {
-    border: #0079ad solid 3px;
-    border-radius: 10px;
-    padding-left: 10px;
-    width: 200px;
-    height: 50px;
-    font-size: 1.3rem;
-  }
-
-  .category {
-    border: #0079ad solid 3px;
-    border-radius: 10px;
-    width: 200px;
-    height: 50px;
-    font-size: 1.3rem;
-  }
-
-  .popup p {
-    font-size: 1.5rem;
-    font-weight: 700;
-  }
-
-  .popup_button {
-    background-color: #0079ad;
-    color: white;
-    font-size: 2rem;
-    border-radius: 20px;
-    font-weight: 700;
-    width: 120px;
-    height: 60px;
-    margin: 5%;
-    margin-top: 10px;
-    box-shadow: 4px 2px 4px rgb(0, 0, 0, 25%);
+  .addButton:hover {
+    background-color: rgb(25, 78, 114);
   }
 }

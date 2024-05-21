@@ -1,21 +1,23 @@
 "use client";
-import React, { useState } from "react";
+import React from "react";
 import { FaRegTrashAlt } from "react-icons/fa";
 import { deleteBudget } from "../utils/handledb";
-import { useRouter } from "next/navigation";
 
-export default function Delete({ id }: { id: string }) {
-  const router = useRouter();
+export default function DeleteBudget({ id }: { id: string }) {
   const deleteForm = async (FormData: FormData) => {
     const id = FormData.get("id") as string;
     const data = await deleteBudget(id);
     console.log(data);
-    router.replace("/budgets");
   };
+
+  const handleClick = () => {
+    window.location.reload();
+  };
+
   return (
     <div>
       <form action={deleteForm}>
-        <button className="delete">
+        <button onClick={handleClick} className="delete">
           <FaRegTrashAlt />
         </button>
         <input type="hidden" name="id" value={id} />

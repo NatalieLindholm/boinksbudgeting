@@ -1,15 +1,15 @@
 "use client";
-import { saveDataBudget } from "../utils/handledb";
 import React, { useState } from "react";
 import { FaPlus } from "react-icons/fa";
+import { saveDataPayment } from "../utils/handledb";
 
-export default function Budgets() {
+export default function Payments() {
   const [visiable, setVisiable] = useState(false);
 
   const create = async (FormData: FormData) => {
-    const category = FormData.get("category") as string;
     const amount = FormData.get("amount") as unknown as number;
-    const data = await saveDataBudget(category, amount);
+    const description = FormData.get("description") as string;
+    const data = await saveDataPayment(amount, description);
     console.log(data);
     setVisiable(!visiable);
   };
@@ -25,21 +25,18 @@ export default function Budgets() {
       {visiable && (
         <form action={create}>
           <div className="popupDiv">
-            <h1 className="popup_h1">Create Budget</h1>
+            <h1 className="popup_h1">Add Payment</h1>
             <div className="popup">
               <p>Amount</p>
               <input type="number" name="amount" placeholder="Enter amount" />
             </div>
             <div className="popup">
-              <p>Category</p>
-              <select className="category" name="category">
-                <option value="Food">Food</option>
-                <option value="Hygien">Hygien</option>
-                <option value="Gas">Gas</option>
-                <option value="Rent">Rent</option>
-                <option value="Clothing">Clothing</option>
-                <option value="Household">Household</option>
-              </select>
+              <p>Description</p>
+              <input
+                type="text"
+                placeholder="Enter description"
+                name="description"
+              />
             </div>
             <button className="popup_button" onClick={handleClick}>
               Done

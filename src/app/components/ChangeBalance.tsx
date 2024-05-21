@@ -10,6 +10,11 @@ export default function ChangeBalance() {
     const amount = FormData.get("amount") as unknown as number;
     const data = await saveDataBalance(amount);
     console.log(data);
+    setVisiable(!visiable);
+  };
+
+  const handleClick = () => {
+    window.location.reload();
   };
   return (
     <div>
@@ -24,7 +29,9 @@ export default function ChangeBalance() {
               <p>Amount</p>
               <input type="number" name="amount" placeholder="Enter balance" />
             </div>
-            <button className="popup_button">Done</button>
+            <button onClick={handleClick} className="popup_button">
+              Done
+            </button>
           </div>
         </form>
       )}

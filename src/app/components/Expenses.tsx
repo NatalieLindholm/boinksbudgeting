@@ -10,6 +10,11 @@ export default function Expenses() {
     const amount = FormData.get("amount") as unknown as number;
     const data = await saveDataExpenses(category, amount);
     console.log(data);
+    setVisiable(!visiable);
+  };
+
+  const handleClick = () => {
+    window.location.reload();
   };
   return (
     <div>
@@ -37,10 +42,13 @@ export default function Expenses() {
                 <option value="Rent">Rent</option>
                 <option value="Clothing">Clothing</option>
                 <option value="Household">Household</option>
+                <option value="Payment">Payment</option>
               </select>
             </div>
             <div className="popup"></div>
-            <button className="popup_button">Done</button>
+            <button onClick={handleClick} className="popup_button">
+              Done
+            </button>
           </div>
         </form>
       )}

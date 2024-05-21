@@ -1,16 +1,14 @@
 "use client";
 import React, { useState, useRef, useEffect } from "react";
 import Link from "next/link";
-import Expenses from "../components/Expenses";
-import { ExpensData } from "../utils/handledb";
-import ChangeBalance from "../components/ChangeBalance";
-import { BalanceData } from "../utils/handledb";
+import { PaymentData } from "../utils/handledb";
+import Payments from "../components/Payment";
+import DeletePayment from "../components/DeletePayment";
 
 export default function Page() {
   const [isOpen, setIsOpen] = useState(false);
+  const [paymentData, setPaymentData] = useState<any>([]);
   const menuRef = useRef<HTMLDivElement>(null);
-  const [expensData, setExpensData] = useState<any>([]);
-  const [balanceData, setBalanceData] = useState<any>([]);
 
   useEffect(() => {
     const handleClickOutside = (event: any) => {
@@ -18,13 +16,8 @@ export default function Page() {
         setIsOpen(false);
       }
     };
-
-    ExpensData().then((data) => {
-      setExpensData(data);
-    });
-
-    BalanceData().then((data) => {
-      setBalanceData(data);
+    PaymentData().then((data) => {
+      setPaymentData(data);
     });
 
     document.addEventListener("mousedown", handleClickOutside);
@@ -40,12 +33,11 @@ export default function Page() {
     <main className="home">
       <div id="sidebar" className="h-24 bg-[#32396B]">
         <div>
+          <Link href={"/home"}>
+            <button className="display">Home</button>
+          </Link>
           <Link href={"/budgets"}>
             <button className="display">Budgets</button>
-          </Link>
-
-          <Link href={"/payments"}>
-            <button className="display">Payments</button>
           </Link>
         </div>
         <div id="mobileButton" ref={menuRef}>
@@ -71,8 +63,8 @@ export default function Page() {
 
           {isOpen && (
             <div className="dropdown">
-              <a href="/budgets" className="text">
-                Budgets
+              <a href="/home" className="text">
+                Home
               </a>
               <a href="/payments" className="text">
                 Payment
@@ -82,40 +74,16 @@ export default function Page() {
         </div>
       </div>
 
-      <div
-        id="content"
-        className="flex flex-col items-center justify-evenly h-full"
-      >
-        <div>
-          {balanceData.map((balance: any) => (
-            <div
-              key={balance.id}
-              className="m-5 bg-[#0079AD] rounded-xl text-white text-3xl w-64 h-24 flex flex-col items-center justify-center relative"
-            >
-              <h1 className="font-bold">Bank Konto</h1>
-              <h2>{balance.amount} €</h2>
-              <ChangeBalance />
-            </div>
-          ))}
-        </div>
+      <Payments></Payments>
 
-        <div className="flex justify-center gap-4">
-          <h1 className="text-4xl">Expenses</h1>
-          <Expenses></Expenses>
-        </div>
-        <div className=" w-full">
-          <div className="expenses_scroll">
-            {expensData.map((expens: any) => (
-              <div key={expens.id} className="expenses_div">
-                <p>{expens.category}</p>
-                <p className="text-red-600 font-bold mb-3">
-                  -{expens.amount} €
-                </p>
-                <p>{JSON.stringify(expens.date)}</p>
-              </div>
-            ))}
+      <div id="site_scroll" className="flex justify-center flex-wrap mt-5">
+        {paymentData.map((payment: any) => (
+          <div key={payment.id} className="payment_div">
+            <h2>{payment.amount}€</h2>
+            <p>{payment.description}</p>
+            <DeletePayment id={payment.id} />
           </div>
-        </div>
+        ))}
       </div>
     </main>
   );

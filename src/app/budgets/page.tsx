@@ -2,8 +2,8 @@
 import Budgets from "../components/Budgets";
 import React, { useState, useRef, useEffect } from "react";
 import Link from "next/link";
-import { getBudgetData } from "../utils/handledb";
-import Delete from "../components/Delete";
+import { BudgetData } from "../utils/handledb";
+import DeleteBudget from "../components/DeleteBudget";
 
 export default function Page() {
   const [isOpen, setIsOpen] = useState(false);
@@ -16,7 +16,7 @@ export default function Page() {
         setIsOpen(false);
       }
     };
-    getBudgetData().then((data) => {
+    BudgetData().then((data) => {
       setBudgetData(data);
     });
 
@@ -31,12 +31,14 @@ export default function Page() {
   };
   return (
     <main className="home">
-      <div id="sidebar" className=" min-h-24 bg-[#32396B]">
+      <div id="sidebar" className="h-24 bg-[#32396B]">
         <div>
           <Link href={"/home"}>
             <button className="display">Home</button>
           </Link>
-          <button className="display">Payments</button>
+          <Link href={"/payments"}>
+            <button className="display">Payments</button>
+          </Link>
         </div>
         <div id="mobileButton" ref={menuRef}>
           <button
@@ -74,12 +76,12 @@ export default function Page() {
 
       <Budgets></Budgets>
 
-      <div id="budget_scroll" className="flex justify-center flex-wrap mt-5">
+      <div id="site_scroll" className="flex justify-center flex-wrap mt-5">
         {budgetData.map((budget: any) => (
           <div key={budget.id} className="budget_div">
             <h1>{budget.category}</h1>
             <h2>/ {budget.amount}€</h2>
-            <Delete id={budget.id} />
+            <DeleteBudget id={budget.id} />
           </div>
         ))}
 
