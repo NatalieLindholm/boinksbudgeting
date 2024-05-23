@@ -31,7 +31,7 @@ export default function Page() {
   };
   return (
     <main className="home">
-      <div id="sidebar" className="h-24 bg-[#32396B]">
+      <div id="sidebar" className="h-24 bg-[#EC6E2A]">
         <div>
           <Link href={"/home"}>
             <button className="display">Home</button>
@@ -80,16 +80,18 @@ export default function Page() {
         {budgetData.map((budget: any) => (
           <div key={budget.id} className="budget_div">
             <h1>{budget.category}</h1>
-            <h2>/ {budget.amount}€</h2>
+            <h2>
+              {budget.expenses} / {budget.amount}€
+            </h2>
             <DeleteBudget id={budget.id} />
           </div>
         ))}
 
-        <div className="overBudget">
+        {/* <div className="overBudget">
           <h1 className="font-bold">Food</h1>
           <h2>334 / 200€</h2>
           <button className="delete">d</button>
-        </div>
+        </div> */}
       </div>
     </main>
   );

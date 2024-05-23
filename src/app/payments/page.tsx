@@ -31,7 +31,7 @@ export default function Page() {
   };
   return (
     <main className="home">
-      <div id="sidebar" className="h-24 bg-[#32396B]">
+      <div id="sidebar" className="h-24 bg-[#EC6E2A]">
         <div>
           <Link href={"/home"}>
             <button className="display">Home</button>

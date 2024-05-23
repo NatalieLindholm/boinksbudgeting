@@ -15,7 +15,6 @@ Here you can track your money and bugdets using this simple program.
 You can:
 
 - Add expenses
-- Create budgets
 - Change balance
 
   > It doesnt add to the current number on the balance it just changes the whole thing.

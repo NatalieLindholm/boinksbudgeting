@@ -38,7 +38,7 @@ export default function Page() {
   };
   return (
     <main className="home">
-      <div id="sidebar" className="h-24 bg-[#32396B]">
+      <div id="sidebar" className="h-24 bg-[#EC6E2A]">
         <div>
           <Link href={"/budgets"}>
             <button className="display">Budgets</button>
@@ -90,7 +90,7 @@ export default function Page() {
           {balanceData.map((balance: any) => (
             <div
               key={balance.id}
-              className="m-5 bg-[#0079AD] rounded-xl text-white text-3xl w-64 h-24 flex flex-col items-center justify-center relative"
+              className="m-5 bg-[#28AB96] rounded-xl text-white text-3xl w-64 h-24 flex flex-col items-center justify-center relative"
             >
               <h1 className="font-bold">Balance</h1>
               <h2>{balance.amount} €</h2>
@@ -111,7 +111,7 @@ export default function Page() {
                 <p className="text-red-600 font-bold mb-3">
                   -{expens.amount} €
                 </p>
-                <p>{JSON.stringify(expens.date)}</p>
+                <p> {new Date(expens.date).toISOString().slice(0, 10)}</p>
               </div>
             ))}
           </div>

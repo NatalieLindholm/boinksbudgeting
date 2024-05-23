@@ -19,8 +19,7 @@ export default function Expenses() {
   return (
     <div>
       <button
-        id="add"
-        className="text-4xl text-[#32396B] font-bold"
+        className="text-4xl text-[#28AB96] font-bold"
         onClick={() => setVisiable(!visiable)}
       >
         +

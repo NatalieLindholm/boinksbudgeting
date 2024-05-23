@@ -22,7 +22,9 @@ export async function saveDataBudget(category: string, amount: number) {
 // Get it from db
 export async function getBudgetData() {
   try {
-    const data = await db.query("SELECT * FROM budget");
+    const data = await db.query(
+      "SELECT budget.*, SUM(expenses.amount) AS expenses FROM budget INNER JOIN expenses ON expenses.category = budget.category GROUP BY budget.id"
+    );
     console.log(data.rows); // Check the structure of the returned data
     return data.rows;
   } catch (error) {
